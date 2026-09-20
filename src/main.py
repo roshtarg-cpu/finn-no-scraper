@@ -256,8 +256,9 @@ class FinnNoScraper:
             
             # Try multiple selectors for listing links
             link_selectors = [
-                'article a[href*="/ad/"]',
-                'a[href*="/ad/"]',
+                'a[href*="/ad.html?finnkode="]',  # finn.no specific format
+                'article a[href*="finnkode="]',
+                'a[href*="finnkode="]',
                 '[class*="result"] a',
                 '[data-testid="result-item"] a'
             ]
@@ -268,7 +269,8 @@ class FinnNoScraper:
                     Actor.log.info(f"Found {len(links)} links with selector: {selector}")
                     for link in links:
                         href = await link.get_attribute('href')
-                        if href and '/ad/' in href:
+                        # Accept URLs with 'finnkode=' parameter (actual listing pages)
+                        if href and 'finnkode=' in href:
                             full_url = urljoin('https://www.finn.no', href)
                             if full_url not in self.visited_urls:
                                 listing_urls.append(full_url)
