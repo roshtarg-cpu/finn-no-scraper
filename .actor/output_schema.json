@@ -1,0 +1,32 @@
+{
+  "actorOutputSchemaVersion": 1,
+  "template": "https://api.apify.com/v2/datasets/{defaultDatasetId}/items?format=json&clean=true",
+  "properties": {
+    "title": {
+      "type": "string",
+      "title": "Title",
+      "description": "Listing title"
+    },
+    "price": {
+      "type": "string",
+      "title": "Price",
+      "description": "Price as displayed"
+    },
+    "location": {
+      "type": "string",
+      "title": "Location",
+      "description": "Address or location"
+    },
+    "url": {
+      "type": "string",
+      "title": "URL",
+      "description": "Listing URL",
+      "template": "{url}"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category",
+      "description": "Listing category"
+    }
+  }
+}
