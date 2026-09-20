@@ -1,0 +1,27 @@
+{
+  "title": "Finn.no Scraper Input",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "startUrl": {
+      "title": "Start URL",
+      "type": "string",
+      "description": "The URL of the Finn.no search/category page to start scraping from. For example: https://www.finn.no/realestate/homes/search.html or https://www.finn.no/car/used/search.html",
+      "editor": "textfield",
+      "default": "https://www.finn.no/realestate/homes/search.html",
+      "prefill": "https://www.finn.no/realestate/homes/search.html",
+      "example": "https://www.finn.no/realestate/homes/search.html"
+    },
+    "maxPages": {
+      "title": "Maximum Pages",
+      "type": "integer",
+      "description": "Maximum number of search result pages to scrape. Each page typically contains 20-50 listings.",
+      "editor": "number",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 100,
+      "example": 10
+    }
+  },
+  "required": ["startUrl"]
+}

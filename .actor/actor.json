@@ -1,0 +1,61 @@
+{
+  "actorSpecification": 1,
+  "name": "finn-no-scraper",
+  "title": "Finn.no Scraper",
+  "description": "Scrapes listings from Finn.no, Norway's largest classifieds platform. Extracts real estate, cars, jobs, and other listings with comprehensive data including title, price, location, description, images, and seller information.",
+  "version": "1.0",
+  "meta": {
+    "templateId": "python-playwright"
+  },
+  "input": "./.actor/input_schema.json",
+  "dockerfile": "./Dockerfile",
+  "readme": "./README.md",
+  "categories": [
+    "ECOMMERCE",
+    "REAL_ESTATE"
+  ],
+  "storages": {
+    "dataset": {
+      "actorSpecification": 1,
+      "views": {
+        "overview": {
+          "title": "Overview",
+          "transformation": {
+            "fields": [
+              "title",
+              "price",
+              "location",
+              "category",
+              "url"
+            ]
+          },
+          "display": {
+            "component": "table",
+            "properties": {
+              "title": {
+                "label": "Title",
+                "format": "text"
+              },
+              "price": {
+                "label": "Price",
+                "format": "text"
+              },
+              "location": {
+                "label": "Location",
+                "format": "text"
+              },
+              "category": {
+                "label": "Category",
+                "format": "text"
+              },
+              "url": {
+                "label": "URL",
+                "format": "link"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
