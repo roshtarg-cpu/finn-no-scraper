@@ -107,7 +107,7 @@ class FinnNoScraper:
             Actor.log.info(f"Extracting data from: {listing_url}")
             
             await page.goto(listing_url, wait_until='networkidle', timeout=30000)
-            await asyncio.sleep(1)  # Small delay for dynamic content
+            await asyncio.sleep(0.3)  # Small delay for dynamic content
             
             # Extract listing data
             data = {
@@ -249,7 +249,7 @@ class FinnNoScraper:
             Actor.log.info(f"Extracting listing URLs from: {list_page_url}")
             
             await page.goto(list_page_url, wait_until='networkidle', timeout=30000)
-            await asyncio.sleep(2)  # Wait for dynamic content
+            await asyncio.sleep(0.5)  # Wait for dynamic content
             
             # Find listing links
             listing_urls = []
@@ -360,7 +360,7 @@ class FinnNoScraper:
                             Actor.log.info(f"Saved listing #{total_listings}: {listing_data.get('title', 'Unknown')}")
                         
                         # Rate limiting
-                        await asyncio.sleep(1)
+                        await asyncio.sleep(0.2)
                         
                     finally:
                         await listing_page.close()
@@ -373,7 +373,7 @@ class FinnNoScraper:
                     break
                 
                 # Delay between pages
-                await asyncio.sleep(2)
+                await asyncio.sleep(0.5)
             
             Actor.log.info(f"Scraping completed. Total listings extracted: {total_listings}")
             
